@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './UserListItem.css';
 
 function UsersListItem({ userData: { average, name, attendance = '0%' } }) {
   return (
-    <li>
-      <div>{average}</div>
-      <div>
+    <li className="result">
+      <div className="result__item">{average}</div>
+      <div className="result__item">
         <p>{name}</p>
         <p>attendance: {attendance}</p>
       </div>
-      <button>x</button>
+      <button className="result__item">x</button>
     </li>
   );
 }
