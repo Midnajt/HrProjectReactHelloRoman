@@ -1,18 +1,35 @@
 import React from 'react';
 import { users } from 'data/users.js';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
-import { Wrapper, StyledList } from './UserList.styles';
+import { StyledList, Wrapper } from './UserList.styles';
 
-const UsersList = () => (
-  <Wrapper>
-    <div>
-      <StyledList>
-        {users.map((userData, i) => (
-          <UsersListItem index={i} key={userData.name} userData={userData} />
-        ))}
-      </StyledList>
-    </div>
-  </Wrapper>
-);
+class UsersList extends React.Component {
+  state = {
+    users,
+  };
+
+  toggleListTitle = () => {
+    this.setState((prevState) => ({
+      isUsersList: !prevState.isUsersList,
+    }));
+  };
+
+  deleteUser = (name) => {
+    const filteredUsers = this.state.users.filter((user) => user.name !== name);
+    this.setState({ users: filteredUsers });
+  };
+
+  render() {
+    return (
+      <Wrapper>
+        <StyledList>
+          {this.state.users.map((userData, i) => (
+            <UsersListItem deleteUser={this.deleteUser} key={userData.name} userData={userData} />
+          ))}
+        </StyledList>
+      </Wrapper>
+    );
+  }
+}
 
 export default UsersList;

@@ -12,7 +12,7 @@ export const StyledBtn = styled.button`
   align-items: center;
 
   svg {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
   }
 `;
