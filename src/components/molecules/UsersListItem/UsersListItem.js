@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'components/atoms/Button/Button';
+import DeleteButton from 'components/atoms/DeleteButton/DeleteButton';
 import { Wrapper, StyledAverage, StyledDiv } from './UserListItem.styles';
 
 function UsersListItem({ deleteUser, userData: { average, name, attendance = '0%' } }) {
@@ -11,11 +11,11 @@ function UsersListItem({ deleteUser, userData: { average, name, attendance = '0%
         <p>{name}</p>
         <p>attendance: {attendance}</p>
       </StyledDiv>
-      <Button
+      <DeleteButton
         onClick={() => {
           deleteUser(name);
         }}
-      ></Button>
+      ></DeleteButton>
     </Wrapper>
   );
 }
