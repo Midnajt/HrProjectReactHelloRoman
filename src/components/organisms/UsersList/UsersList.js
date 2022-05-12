@@ -33,10 +33,6 @@ const UsersList = () => {
     };
   }, []); // componentDidUpdate
 
-  useEffect(() => {
-    console.log('loading state has changed');
-  }, [isLoading]);
-
   const deleteUser = (name) => {
     const filteredUsers = users.filter((user) => user.name !== name);
     setUsers(filteredUsers);
