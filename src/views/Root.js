@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Root.styles';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Form from 'components/organisms/Form/Form';
 
 const initialFormState = {
@@ -52,14 +52,14 @@ const Root = () => {
             <Link to="/">Home</Link>
             <Link to="/add-user">Add user</Link>
           </nav>
-          <Switch>
-            <Route path="/add-user">
-              <Form formValues={formValues} handleAddUser={handleAddUser} handleInputChange={handleInputChange} />
-            </Route>
-            <Route path="/">
-              <UsersList deleteUser={deleteUser} users={users} />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route
+              path="/add-user"
+              exact
+              element={<Form formValues={formValues} handleAddUser={handleAddUser} handleInputChange={handleInputChange} />}
+            ></Route>
+            <Route path="/" exact element={<UsersList deleteUser={deleteUser} users={users} />}></Route>
+          </Routes>
         </Wrapper>
       </ThemeProvider>
     </Router>
