@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Root.styles';
+import { Nav } from './Nav.styles';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Form from 'components/organisms/Form/Form';
 
@@ -48,10 +49,10 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle></GlobalStyle>
         <Wrapper>
-          <nav>
+          <Nav>
             <Link to="/">Home</Link>
             <Link to="/add-user">Add user</Link>
-          </nav>
+          </Nav>
           <Routes>
             <Route
               path="/add-user"
