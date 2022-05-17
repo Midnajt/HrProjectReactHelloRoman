@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   position: absolute;
-  left: 0;
-  bottom: 0;
-  border: 2px solid magenta;
+  width: 900px;
+  height: 0px;
+  left: 109px;
+  top: 0px;
+
+  border: 1px solid magenta;
 `;
 
 // background-color: ${({ theme }) => theme.colors.lightgrey};
