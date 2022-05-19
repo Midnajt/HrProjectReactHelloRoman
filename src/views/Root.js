@@ -25,7 +25,6 @@ const Root = () => {
   };
 
   const handleInputChange = (e) => {
-    console.log(formValues);
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
