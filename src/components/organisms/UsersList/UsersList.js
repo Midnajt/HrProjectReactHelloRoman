@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { StyledList } from './UsersList.styles';
-import { UserShape } from 'types';
+import { UserShape } from 'types/index';
 import { Title } from 'components/atoms/Title/Title';
 
 const UsersList = ({ users, deleteUser }) => {
