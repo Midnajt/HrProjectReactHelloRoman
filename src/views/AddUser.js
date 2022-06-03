@@ -4,6 +4,7 @@ import { Button } from 'components/atoms/Button/Button';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { Title } from 'components/atoms/Title/Title';
 import { UsersContext } from 'providers/UsersProvider';
+import { useWindowHeight } from 'hooks/useWindowSize';
 
 const initialFormState = {
   name: '',
@@ -47,6 +48,7 @@ const reducer = (state, action) => {
 const AddUser = () => {
   const [formValues, dispatch] = useReducer(reducer, initialFormState);
   const { handleAddUser } = useContext(UsersContext);
+  const dimensions = useWindowHeight();
 
   const handleInputChange = (e) => {
     dispatch({
@@ -69,6 +71,8 @@ const AddUser = () => {
   return (
     <ViewWrapper as="form" onSubmit={handleSubmitUser}>
       <Title>Add new user</Title>
+      <Title>Screen width: {dimensions.width}</Title>
+      <Title>Screen height: {dimensions.height}</Title>
       <FormField label="Name" id="name" name="name" value={formValues.name} onChange={handleInputChange} />
       <FormField label="Attendance" id="attendance" name="attendance" value={formValues.attendance} onChange={handleInputChange} />
       <FormField label="Average" id="average" name="average" value={formValues.average} onChange={handleInputChange} />
