@@ -1,23 +1,47 @@
 import React from 'react';
-import { Wrapper, TitleWrapper, ArticleWrapper } from './NewsSection.styles';
+import { Wrapper, NewsSectionHeader, TitleWrapper, ArticleWrapper, ContentWrapper } from './NewsSection.styles';
 import { Button } from 'components/atoms/Button/Button';
+
+const data = [
+  {
+    title: 'New computers at school',
+    category: 'Tech news',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dignissimos ipsum similique amet earum. Error vel quisquam liberopraesentium laborum',
+  },
+  {
+    title: 'New computers at school2',
+    category: 'Tech news',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dignissimos ipsum similique amet earum. Error vel quisquam liberopraesentium laborum',
+    image: 'https://cdn.pixabay.com/photo/2014/09/20/13/52/board-453758_960_720.jpg',
+  },
+  {
+    title: 'New computers at school3',
+    category: 'Tech news',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dignissimos ipsum similique amet earum. Error vel quisquam liberopraesentium laborum',
+    image: 'https://cdn.pixabay.com/photo/2015/01/08/18/24/children-593313_960_720.jpg',
+  },
+];
 
 const NewsSection = () => {
   return (
     <Wrapper>
-      <h2>University news feed</h2>
-      <ArticleWrapper>
-        <TitleWrapper>
-          <h3>Lorem ipsum</h3>
-          <p>dTech news</p>
-        </TitleWrapper>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dignissimos ipsum similique amet earum. Error vel quisquam libero
-          praesentium laborum, doloremque, optio reprehenderit porro consequuntur consequatur ea! Sunt eum quibusdam soluta vitae quisquam debitis
-          cumque corporis consequatur rem provident, assumenda temporibus unde id, magni facere minus eos. Doloribus ea aut sapiente excepturi
-        </p>
-        <Button isBig>Click me</Button>
-      </ArticleWrapper>
+      <NewsSectionHeader>University news feed</NewsSectionHeader>
+      {data.map(({ title, category, content, image = null }) => (
+        <ArticleWrapper key={title}>
+          <TitleWrapper>
+            <h3>{title}</h3>
+            <p>{category}</p>
+          </TitleWrapper>
+          <ContentWrapper>
+            <p>{content}</p>
+            {image ? <img src={image} alt="articleImage" /> : null}
+          </ContentWrapper>
+          <Button isBig>Click me</Button>
+        </ArticleWrapper>
+      ))}
     </Wrapper>
   );
 };
